@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useReducer} from 'react';
 import './App.css';
 
+import {MovieContext, movieChangerReducer} from './sw/contexts'
+
+// import { PlanetList } from './sw/planets'
+import { Crawl, Films } from './sw/movies'
+// import { Cart} from './cart/cart'
+
+// import {PeopleList} from './sw/people'
+
+
 function App() {
+
+  let [currMovie, movieSwitchDispatch] = useReducer(movieChangerReducer) 
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        React Wars
       </header>
+
+      <MovieContext.Provider value={{episode: currMovie, dispatch: movieSwitchDispatch}}>
+        <div className="App-toolbar">
+          <Films></Films>
+        </div>
+
+        <Crawl episode="IV"/>
+      </MovieContext.Provider>
+
     </div>
   );
 }

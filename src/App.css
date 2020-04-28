@@ -1,5 +1,15 @@
+@import url(//db.onlinewebfonts.com/c/0c724f6aa457310440cf8949c615cbd7?family=Star+Jedi);
+
+@font-face {font-family: "Star Jedi"; src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot"); src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff") format("woff"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.svg#Star Jedi") format("svg"); }
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -15,17 +25,169 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  font-family: "Star Jedi";
+  font-size: 400%;
+
+  /* font-family: 'Star Jedi';
+  font-size: 48px; */
 }
+
+.App-toolbar {
+  text-align: center;
+}
+
 
 .App-link {
   color: #61dafb;
+}
+
+ul.toolbar li {
+  display: inline-block;
+  padding: 1em;
+}
+
+ul.toolbar li   {
+  vertical-align: middle;
+  text-align: center;
+}
+
+ul.toolbar li button span::before {
+  content: '#';
+  display: flexbox;
+  color: black; 
+  padding-right: 0.3em;
+  font-family: "Star Jedi";
+  font-size: x-large;
+}
+
+.planet-list {
+  color: white;
+}
+
+.people-list {
+  color: white;
+}
+
+.star-wars__fade {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: 10px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+
+
+.star-wars__crawl-section {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 20vh;
+  color: #feda4a;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 400px;
+  text-align: justify;
+}
+
+.star-wars__crawl-section > .crawl > pre {
+  font-family: "Pathway Gothic One", sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.star-wars__splash {
+  font-family: "Star Jedi";
+
+  position: relative;
+  color: #feda4a;
+
+  font-size: 100%;
+  /* height: 100vh;
+  width: 100vh;
+  text-align: center; */
+
+  /* animation: splash 11s linear; */
+
+  transition-duration: 11s;
+  animation-name: splash;
+    animation-duration: 11s;
+    animation-timing-function: linear;
+}
+
+.star-wars__crawl-section .crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 80s linear;
+}
+
+.crawl > .title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+@keyframes splash {
+  0% {
+    transform: scale(20);
+    -webkit-transform: scale(20);
+  }
+
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes crawl {
+  0% {
+    top: -100px;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+.sw-crawl__text_visible {
+  display: block;
+}
+
+.sw-crawl__text_hidden {
+  display: none;
+}
+
+
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
 }
 
 @keyframes App-logo-spin {
